@@ -1,0 +1,12 @@
+TYLER MATTHEWS 2017
+BASIC GIT COMMANDS AND HOW THEY ARE INTEGRATED WITH GITHUB
+git pull https://github.com/uaev/SAS    -->Pulls Current Files From SAS Repo (change change org / repo by changing the url to the one that you are currently using. ie: https://github.com/uaev/MCS for the MCS repo)
+git status								-->Checks if any of the files in git have been updated since previous commit
+git add **file name**					-->Adds the inputted file to the commit so that you can commit it with the next step (can add multiple files per commit)
+git commit -m "Message Goes Here"		-->Commits all of the added files to the current branch in the local version of git. Must put a message explaing the purpose of the commit between the quotes. Good for keeping track of work being done and git won't let you proceed without it.
+git push								-->Pushes the most recent commit to the repo that the data was last pulled from
+
+GIT BRANCH COMMANDS
+git branch								--> ists all the branches in the current iteration of git
+git branch **branch name**				-->Creates a new branch with the given file name
+git checkout  **branch name**			-->Moves you to the branch with the given branch name
