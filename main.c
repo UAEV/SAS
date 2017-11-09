@@ -8,6 +8,29 @@
 
 #include <xc.h>
 #include <stdio.h>
+#include "ADC.h"
+
 
 void main(void) {
+    
+    /*
+     * Main loop for SAS board
+     */
+    while(1){
+        
+    
+    
+    
+ /*
+  * 
+  * Read inputs from potentiometers for gas pedal
+  */
+        if(readyToSample){
+            ADC_Samp;
+            //ADC1BUF0bits
+        }
+    
+    
+    
+    }
 }
