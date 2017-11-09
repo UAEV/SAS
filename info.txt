@@ -1,0 +1,3 @@
+This branch is to be used to develope the ADC code to be used to convert the various signals the PIC has to handle.
+
+This should not be merged with the master until reviewed by multiple parties on the team.
