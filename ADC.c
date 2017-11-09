@@ -71,6 +71,13 @@ void ADC_Samp(){
     AD1CON1bits.SAMP = 1;
 }
 
+
+/*
+ * 
+ *  Not sure if we should have and branch where we develop interrupts 
+ * and a branch where we develop timers 
+ * 
+ */
 void __attribute__((interrupt, auto_psv)) T5Interrupt(void){
     
     IFS1bits.T5IF = 0;
