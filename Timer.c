@@ -23,7 +23,10 @@ void T1_Setup(void){
 }
 
 void T5_Setup(void){
-    
+    T5CONbits.TON = 1;
+    T5CONbits.TSIDL = 0;
+    T5CONbits.TCS = 1;
+    T1CONbits.TCKPS = 0b11; // Prescaler set 1:256
 }
 
 

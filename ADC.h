@@ -33,34 +33,15 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-// TODO Insert appropriate #include <>
-    
-// TODO Insert C++ class definitions if appropriate
-    
-// TODO Insert declarations
-int readyToSample = 0;
-// Comment a function and leverage automatic documentation with slash star star
-/**
-    <p><b>Function prototype:</b></p>
-  
-    <p><b>Summary:</b></p>
 
-    <p><b>Description:</b></p>
+// Variables
+volatile int readyToSample = 0;
+volatile int ADCReady = 0;
 
-    <p><b>Precondition:</b></p>
 
-    <p><b>Parameters:</b></p>
 
-    <p><b>Returns:</b></p>
 
-    <p><b>Example:</b></p>
-    <code>
- 
-    </code>
-
-    <p><b>Remarks:</b></p>
- */
-
+// Functions
 void ADC_Init(void);
 void ADC_Samp(void);
 void T5Interrupt(void);

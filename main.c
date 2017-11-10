@@ -11,6 +11,7 @@
 #include "ADC.h"
 
 
+
 void main(void) {
     
     /*
@@ -29,7 +30,13 @@ void main(void) {
             ADC_Samp;
             //ADC1BUF0bits
         }
-    
+        if(ADCReady){
+            //ADCVaulue = AD1BUF0
+        }
+        
+        //if(TransmitReady){
+            
+        //}
     
     
     }

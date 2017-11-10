@@ -32,11 +32,15 @@
 #define	XC_HEADER_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+
+// Variables
 void T1_Setup(void);
 void T5_Setup(void);
 
 
-
+// Functions
+void T1_Setup(void);
+void T5_Setup(void);
 
 
 
