@@ -7,6 +7,7 @@
 
 
 #include "xc.h"
+#include "ADC.h"
 
 int main(void) {
     return 0;
@@ -18,5 +19,24 @@ void T1_Setup(void){
     T1CONbits.TCS = 1;
     //T1CONbits.TSYNC = 1;
     T1CONbits.TCKPS = 0b11; // Prescaler set 1:256
+    
+}
+
+void T5_Setup(void){
+    
+}
+
+
+/*
+ * 
+ *  Not sure if we should have and branch where we develop interrupts 
+ * and a branch where we develop timers 
+ * 
+ */
+
+void __attribute__((interrupt, auto_psv)) T5Interrupt(void){
+    
+    IFS1bits.T5IF = 0;
+    readyToSample = 1;
     
 }
