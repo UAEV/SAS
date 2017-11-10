@@ -8,6 +8,13 @@
 
 #include <xc.h>
 #include <stdio.h>
+<<<<<<< HEAD
+#include <pindef.h>
+
+
+void main(void) {
+
+=======
 #include "ADC.h"
 
 
@@ -40,4 +47,5 @@ void main(void) {
     
     
     }
+>>>>>>> 1c05aac93fb86685fc3b425f555d5b5d7603f1de
 }

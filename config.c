@@ -12,12 +12,15 @@ void timerSetup(){
 }
 
 
-//(M2/N1*N1)
+//Fosc = Fin * (M/N2*N1) = 49MHZ
 void oscSetup(){   
-    OSCCONbits.COSC = 0b011; // External Crystal Oscillator 
+    //Setting Up External Oscillator
+    OSCCONbits.COSC = 0b011;
     OSCCONbits.NOSC = 0b011;
     OSCCONbits.IOLOCK = 0;
     OSCCONbits.CLKLOCK = 1;
+    
+    
     CLKDIVbits.PLLPRE = 0; //N1 = 2
     CLKDIVbits.PLLPOST = 0; // N2 = 2
     PLLFBDbits.PLLDIV = 0x20; //M = 16
