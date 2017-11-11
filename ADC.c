@@ -18,15 +18,15 @@
 void ADC_Init(void){
     
     //AD1CON1 Register set
-    AD1CON1bits.ADON = 1;
+    
     AD1CON1bits.ADSIDL = 0;
     AD1CON1bits.ADDMABM = 1;
     AD1CON1bits.AD12B = 0;
-    AD1CON1bits.FORM = 0b00;
-    AD1CON1bits.SSRC = 0b100;
-    AD1CON1bits.SIMSAM = 1;
+    AD1CON1bits.FORM = 0b00;  // ADC return Integer
+    AD1CON1bits.SSRC = 0b100; // Timer 5 stops sample and starts conversion
+    AD1CON1bits.SIMSAM = 1;   
     AD1CON1bits.ASAM = 0;
-    AD1CON1bits.SAMP = 0;
+    AD1CON1bits.SAMP = 0;     //ADC Sample when manually called
     AD1CON1bits.DONE = 0;
     
     //AD1CON2 Register set
@@ -50,6 +50,17 @@ void ADC_Init(void){
     //AD1CHS123bits.CH123SB = 0b11; //Not needed?
     AD1CHS123bits.CH123SA = 0; //??????
     
+    
+    /* AD1PCFGL set input pins
+     * Not sure if tris registers need to be set as inputs
+     * 
+     */
+    
+    
+    AD1PCFGLbits.PCFG3 = 0;
+    
+    AD1CON1bits.ADON = 1;
+    
     /*
      * Not sure how channel 0 works yet
      */
@@ -67,11 +78,18 @@ void ADC_Init(void){
      */
 }
 
+//void ADC_Ch0_Init(int mask){
+  //  AD1PCFGL = !mask;
+    
+
+
+
+
 void ADC_Samp(){
     AD1CON1bits.SAMP = 1;
 }
 
-
-
-
+void __attribute__((interrupt, auto_psv)) AD1Interrupt(void){
+    AD1BUF0
+}
 

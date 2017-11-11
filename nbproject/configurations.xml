@@ -19,6 +19,8 @@
       <itemPath>config.c</itemPath>
       <itemPath>Timer.c</itemPath>
       <itemPath>ADC.c</itemPath>
+      <itemPath>DMA.c</itemPath>
+      <itemPath>Interrupt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

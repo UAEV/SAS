@@ -35,8 +35,10 @@
 
 
 // Variables
-volatile int readyToSample = 0;
-volatile int ADCReady = 0;
+volatile int readyToSample = 0;  //Timer 4 calls 
+volatile int ADCReady = 0;       // 
+volatile int tempADCval1 = 0;
+volatile int tempADCval2 = 0;
 
 
 

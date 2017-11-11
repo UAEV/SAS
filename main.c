@@ -8,18 +8,24 @@
 
 #include <xc.h>
 #include <stdio.h>
-<<<<<<< HEAD
 #include <pindef.h>
 
 
 void main(void) {
 
-=======
 #include "ADC.h"
 
 
 
 void main(void) {
+    
+    /*
+     * Main Setup
+     */
+    
+    
+    
+    
     
     /*
      * Main loop for SAS board
@@ -38,7 +44,10 @@ void main(void) {
             //ADC1BUF0bits
         }
         if(ADCReady){
-            //ADCVaulue = AD1BUF0
+            tempADCval1 = DMA[0];
+            //tempADCval2 = Ad1BUF0[1];
+            
+            
         }
         
         //if(TransmitReady){
@@ -47,5 +56,5 @@ void main(void) {
     
     
     }
->>>>>>> 1c05aac93fb86685fc3b425f555d5b5d7603f1de
+
 }
