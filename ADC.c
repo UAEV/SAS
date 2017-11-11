@@ -6,6 +6,8 @@
  */
 
 
+#include <p33FJ128GP804.h>
+
 #include "xc.h"
 
 
@@ -17,17 +19,20 @@
  */
 void ADC_Init(void){
     
+    // Select analog inputs
+    AD1PCFGL = 0xffff; // Need to cross reference with schematic
+    
     //AD1CON1 Register set
     
     AD1CON1bits.ADSIDL = 0;
-    AD1CON1bits.ADDMABM = 1;
+    AD1CON1bits.ADDMABM = 1; //
     AD1CON1bits.AD12B = 0;
     AD1CON1bits.FORM = 0b00;  // ADC return Integer
     AD1CON1bits.SSRC = 0b100; // Timer 5 stops sample and starts conversion
     AD1CON1bits.SIMSAM = 1;   
-    AD1CON1bits.ASAM = 0;
-    AD1CON1bits.SAMP = 0;     //ADC Sample when manually called
-    AD1CON1bits.DONE = 0;
+    AD1CON1bits.ASAM = 1;
+    //AD1CON1bits.SAMP = 0;     //ADC Sample when manually called
+    //AD1CON1bits.DONE = 0;
     
     //AD1CON2 Register set
     AD1CON2bits.VCFG 0b000;
@@ -38,17 +43,26 @@ void ADC_Init(void){
     AD1CON2bits.ALTS = 0; //?????
     
     //AD1CON3 Register set
-    AD1CON3bits.ADRC = 0;
+    AD1CON3bits.ADRC = 0;              // Everything set by timer 5
+    AD1CON3bits.SAMC = 0;
     AD1CON3bits.ADCS = 0x00;
     
     //AD1CON4 Register set
     AD1CON4bits.DMABL = 0b000;
     
     //AD1CHS123 Register set
-    //AD1CHS123bits.CH123NB = 0b00; //Not needed?
-    AD1CHS123bits.CH123NA = 0b00; //?????
-    //AD1CHS123bits.CH123SB = 0b11; //Not needed?
-    AD1CHS123bits.CH123SA = 0; //??????
+    //AD1CHS123bits.CH123NB = 0b00;     //Not needed?
+    AD1CHS123bits.CH123NA = 0b00;       // Using only channel A for conversions
+                                        // CH1, CH2, CH3 negative input is Vref-
+    
+    //AD1CHS123bits.CH123SB = 0b11;     //Not needed?
+    AD1CHS123bits.CH123SA = 0;          // Channel A
+    
+    AD1CHS0bits.CH0NA = 0;
+    AD1CHS0bits.CH0SA = 0b00000;        // Have to cross reference with Schematic
+    
+    // No input scan we will read simultaneously 
+    AD1CSSL = 0x0000;
     
     
     /* AD1PCFGL set input pins
@@ -57,7 +71,7 @@ void ADC_Init(void){
      */
     
     
-    AD1PCFGLbits.PCFG3 = 0;
+    
     
     AD1CON1bits.ADON = 1;
     
