@@ -22,39 +22,28 @@
 /* 
  * File:   
  * Author: Nick
- * Comments: 
+ * Comments:
  * Revision history: 
  */
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
 #ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+//#define	XC_HEADER_TEMPLATE_H
+
+// Definitions
+#define FCY 12000000
+
+// Variables
+int readyToSend = 0;
+//Functions
+void UART_Init(int Brate);
+void UARTSend(Speed *data[]);
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 
-// Variables
-volatile int readyToSample = 0;  //Timer 4 calls 
-volatile int ADCReady = 0;       // 
-volatile int ADCval[];
-int ADCPtr = &ADCBUF0;
 
-
-struct Speed{
-    char speedH;
-    char speedL;
-};
-
-
-// Functions
-void ADC_Init(void);
-void ADC_Samp(void);
-void T5Interrupt(void);
-void loadSpeed(Speed *speed[], int *val[]);
-
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
 
 #ifdef	__cplusplus
 extern "C" {

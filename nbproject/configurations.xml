@@ -7,6 +7,7 @@
       <itemPath>PinDef.h</itemPath>
       <itemPath>ADC.h</itemPath>
       <itemPath>Timer.h</itemPath>
+      <itemPath>UART.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +22,7 @@
       <itemPath>ADC.c</itemPath>
       <itemPath>DMA.c</itemPath>
       <itemPath>Interrupt.c</itemPath>
+      <itemPath>UART.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -9,7 +9,7 @@
 #include <p33FJ128GP804.h>
 
 #include "xc.h"
-
+#include "ADC.h"
 
 
 
@@ -103,7 +103,20 @@ void ADC_Samp(){
     AD1CON1bits.SAMP = 1;
 }
 
-void __attribute__((interrupt, auto_psv)) AD1Interrupt(void){
-    AD1BUF0
+void loadSpeed(Speed *speed[], int *val[]){
+    int i = 0;
+    while(i < 2){
+        speed[i]->speedH = val[i];
+        val[i] >> 8;
+        speed[i]->speedL = val[i];
+        i++;
+    } 
+    
+    
 }
+
+//void __attribute__((interrupt, auto_psv)) AD1Interrupt(void){
+    
+
+//}
 

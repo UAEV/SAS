@@ -29,10 +29,10 @@ void Interrupt_Set(void){
 
 
 // Initialize ADC Conversion complete interrupt
-void ADC_Int(void){
-    IEC0bits.AD1IE = 1;
+//void ADC_Int(void){
+  //  IEC0bits.AD1IE = 1;
     // ID1IP = 0b111;
-}
+//}
 
 
 // Initalize 
