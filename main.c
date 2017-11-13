@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "PinDef.h"
 #include "ADC.h"
+
 //#include "UART.h"
 
 
@@ -22,7 +23,7 @@ void main(void) {
      */
     T5_Setup(void);
     ADC_Init(void);
-    UART_Init(9600);
+    UART_Init();
     
    // while(!UARTTest);
     

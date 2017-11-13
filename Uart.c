@@ -10,8 +10,8 @@
 #include "UART.h"
 #include "ADC.h"
 
-void UART_Init(int Brate){
-    int temp = ((FCY/Brate)/16) - 1;
+void UART_Init(){
+    int temp = ((FCY/BRATE)/16) - 1;
     U1BRG = temp;
     
     // U1MODE Register settings

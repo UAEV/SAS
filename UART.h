@@ -33,12 +33,14 @@
 
 // Definitions
 #define FCY 12000000
-
+#define BRATE 9600
 // Variables
 int readyToSend = 0;
 //Functions
-void UART_Init(int Brate);
+void UART_Init();
 void UARTSend(Speed *data[]);
+
+
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
