@@ -35,7 +35,7 @@ void ADC_Init(void){
     //AD1CON1bits.DONE = 0;
     
     //AD1CON2 Register set
-    AD1CON2bits.VCFG 0b000;
+    AD1CON2bits.VCFG = 0b000;
     AD1CON2bits.CSCNA = 0; //SCAN????? Only two analog signals will be taken in 
     AD1CON2bits.CHPS = 0b01;
     AD1CON2bits.SMPI = 0b0000; //??????

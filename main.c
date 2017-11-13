@@ -8,7 +8,7 @@
 
 #include <xc.h>
 #include <stdio.h>
-#include <pindef.h>
+#include "PinDef.h"
 #include "ADC.h"
 //#include "UART.h"
 
@@ -24,7 +24,7 @@ void main(void) {
     ADC_Init(void);
     UART_Init(9600);
     
-    while(!UARTTest);
+   // while(!UARTTest);
     
     
     

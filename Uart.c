@@ -48,4 +48,4 @@ void UARTSend(Speed *data[]){
     U1TXREG[3] = data[1]->speedL;
     
     }
-}
+

@@ -23,6 +23,7 @@
       <itemPath>DMA.c</itemPath>
       <itemPath>Interrupt.c</itemPath>
       <itemPath>UART.c</itemPath>
+      <itemPath>I2c.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

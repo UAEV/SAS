@@ -38,7 +38,7 @@
 volatile int readyToSample = 0;  //Timer 4 calls 
 volatile int ADCReady = 0;       // 
 volatile int ADCval[];
-int ADCPtr = &ADCBUF0;
+int ADCPtr = (int) &ADCBUF0;
 
 
 struct Speed{

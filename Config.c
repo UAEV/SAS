@@ -7,7 +7,7 @@
 
 
 #include <xc.h>
-#include <pindef.h>
+#include "PinDef.h"
 void timerSetup(){
 }
 
