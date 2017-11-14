@@ -106,11 +106,15 @@ void ADC_Samp(){
 void loadSpeed(Speed *speed[], int *val[]){
     int i = 0;
     while(i < 2){
+        speed[i]->speedL = val[i] >>2;
         
-        speed[i]->speedL = val[i];
+        //Currently only using 8 most significant bits
+        //Might use below code to utilize all data later
+        /*speed[i]->speedL = val[i];
         val[i] >> 8;
         speed[i]->speedH = val[i];
         i++;
+         */
     } 
     
 }
