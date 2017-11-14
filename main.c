@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include "PinDef.h"
 #include "ADC.h"
+#include "Timer.h"
+#include "UART.h"
 
 //#include "UART.h"
 

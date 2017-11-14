@@ -6,7 +6,7 @@
  */
 
 
-#include "xc.h"
+#include <xc.h>
 
 void DMA_Setup(void){
     

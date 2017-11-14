@@ -22,9 +22,11 @@ void T1_Setup(void){
 void T5_Setup(void){
     T5CONbits.TON = 1;
     T5CONbits.TSIDL = 0;
-    T5CONbits.TCS = 1;
+    T5CONbits.TCS = 0;
     T5CONbits.TCKPS = 0b11; // Prescaler set 1:256
     TMR5 = 0x0000;
+    
+    //Chip
     PR5 = 0x1234;  // Have to double check with rules and schematic
     
 

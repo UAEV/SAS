@@ -5,14 +5,14 @@
  * Created on November 7, 2017, 3:23 PM
  */
 
+//Tells the PIC what the clock speed is (40MHz)
+#define _XTAL_FREQ 40000000
 
 #include <xc.h>
 #include "PinDef.h"
-void timerSetup(){
-}
 
 
-//Fosc = Fin * (M/N2*N1) = 49MHZ
+//Fosc = Fin * (M/N2*N1) = 40MHZ => 20Mips
 void oscSetup(){   
     //Setting Up External Oscillator
     OSCCONbits.COSC = 0b011;
@@ -23,7 +23,7 @@ void oscSetup(){
     
     CLKDIVbits.PLLPRE = 0; //N1 = 2
     CLKDIVbits.PLLPOST = 0; // N2 = 2
-    PLLFBDbits.PLLDIV = 0x20; //M = 16
+    PLLFBDbits.PLLDIV = 0x14; //M = 16
     
             
     
@@ -31,5 +31,6 @@ void oscSetup(){
 
 void setup(){
     oscSetup();
-    timerSetup();
+    T1_Setup();
+    T5_Setup();
 }
