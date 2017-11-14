@@ -41,29 +41,24 @@ void UART_Init(){
     
 }
 
-//Change
-//Will need to send up for one byte at a time for now
-void UARTSend(Speed *data[]){
-<<<<<<< HEAD
+//Not using buffer yet, instead doing a bit shift and dropping the two least significant bits
+/*void UARTSend(Speed *data[]){
+   
     
-    
-    
-  //Not using buffer yet, instead doing a bit shift and dropping the two least significant bits
-  /*  requestToSend = 0;
+  //
+   requestToSend = 0;
     U1TXB[0] = data[0]->speedH;
     U1TXB[1] = data[0]->speedL;
     U1TXB[2] = data[1]->speedH;
     U1TXB[3] = data[1]->speedL;
-    */
     
     
-=======
-    requestToSend = 0;
-    U1TXREG[0] = data[0]->speedH;
-    U1TXREG[1] = data[0]->speedL;
-    U1TXREG[2] = data[1]->speedH;
-    U1TXREG[3] = data[1]->speedL;
->>>>>>> fe8882060d67af0ae71dcb51f4c0eb456e2d182d
     
     }
+*/
+    
+void UARTSend (char data){
+     while(!U1STA.UT1BX);  // hold the program till TX buffer is free
+    U1TXREG = data; //Load the transmitter buffer with the received value
+}
 
