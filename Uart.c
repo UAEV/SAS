@@ -44,6 +44,7 @@ void UART_Init(){
 //Change
 //Will need to send up for one byte at a time for now
 void UARTSend(Speed *data[]){
+<<<<<<< HEAD
     
     
     
@@ -56,6 +57,13 @@ void UARTSend(Speed *data[]){
     */
     
     
+=======
+    requestToSend = 0;
+    U1TXREG[0] = data[0]->speedH;
+    U1TXREG[1] = data[0]->speedL;
+    U1TXREG[2] = data[1]->speedH;
+    U1TXREG[3] = data[1]->speedL;
+>>>>>>> fe8882060d67af0ae71dcb51f4c0eb456e2d182d
     
     }
 
