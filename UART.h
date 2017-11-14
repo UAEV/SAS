@@ -28,14 +28,18 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
+//#ifndef XC_HEADER_TEMPLATE_H
 //#define	XC_HEADER_TEMPLATE_H
 
 // Definitions
-#define FCY 12000000
+#define FCY 40000000
 #define BRATE 9600
 // Variables
 int readyToSend = 0;
+int requestToSend = 0;
+int clearToSend = 0;
+
+
 //Functions
 void UART_Init();
 void UARTSend(Speed *data[]);

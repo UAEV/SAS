@@ -8,6 +8,7 @@
 
 #include "xc.h"
 #include "ADC.h"
+#include "PinDef.h"
 
 
 void T1_Setup(void){
@@ -17,6 +18,19 @@ void T1_Setup(void){
     //T1CONbits.TSYNC = 1;
     T1CONbits.TCKPS = 0b11; // Prescaler set 1:256
     
+}
+
+void T2_Setup(void){
+    T2CONbits.TON = 1;
+    T2CONbits.TSIDL = 0;
+    T2CONbits.TCS = 0;
+    T2CONbits.TCKPS = 0b11; // Prescaler set 1:256
+    TMR2 = 0x0000;
+    
+    //Chip
+    PR2 = 0x1234;  // Have to double check with rules and schematic
+    
+
 }
 
 void T5_Setup(void){
@@ -40,9 +54,11 @@ void T5_Setup(void){
  * 
  */
 
-//void __attribute__((interrupt, auto_psv)) T5Interrupt(void){
+void __attribute__((interrupt, auto_psv)) T2Interrupt(void){
     
-    //IFS1bits.T5IF = 0;
-    //readyToSample = 1;
+    IFS0bits.T2IF = 0;
+    LED_Port = !LED_Port;         // Amber indication turns on and off status LED
     
-//}
+}
+
+
