@@ -23,15 +23,8 @@ void main(void) {
     /*
      * Main Setup
      */
-    //T5_Setup(void);
-    //ADC_Init(void);
-    //UART_Init();
     setup(void);
-   // while(!UARTTest);
-    
-    
-    
-    
+    LED_Tris = 0;
     
     /*
      * Main loop for SAS board
@@ -49,22 +42,25 @@ void main(void) {
         //    ADC_Samp;
             //ADC1BUF0bits
         //}
-        if(!IFS0bits.AD1IF){
-            ADCval[0] = *ADCPtr;
-            ADCval[1] = *(ADCPtr++);
+        if(IFS0bits.AD1IF){
+            ADCval[0] = *ADCPtr; //Buffer for first Acc Sensor
+            ADCval[1] = *(ADCPtr++); //Buffer for second Acc Sensor
             IFS0bits.AD1IF = 0;
             loadSpeed(&speed, &ADCval);
             readyToSend = 1;
+            TMR5 = 0;
             //tempADCval2 = Ad1BUF0[1];
             
             
         }
         
         
-        if(readyToSend){
+        if(readyToSend  && clearToSend){
             readyToSend = 0;
             UARTSend(&speed);
         }
+        
+        
         
         //if(TransmitReady){
             

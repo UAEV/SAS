@@ -106,12 +106,12 @@ void ADC_Samp(){
 void loadSpeed(Speed *speed[], int *val[]){
     int i = 0;
     while(i < 2){
-        speed[i]->speedH = val[i];
-        val[i] >> 8;
+        
         speed[i]->speedL = val[i];
+        val[i] >> 8;
+        speed[i]->speedH = val[i];
         i++;
     } 
-    
     
 }
 
