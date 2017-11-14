@@ -77,6 +77,10 @@ void __attribute__((interrupt, auto_psv)) T2Interrupt(void){
 
 void __attribute__((interrupt, auto_psv)) T3Interrupt(void){
     plausCheck = 1;
-    
+    TMR5 = 0;
+    IFS0bits.T3IF = 0; //Clear interrupt flag
 }
 
+void __attribute__((interrupt, auto_psv)) T5Interrupt(void){
+    IFS1bits.T5IF = 0; //Clear interrupt flag
+}

@@ -31,18 +31,8 @@ void main(void) {
      * Main loop for SAS board
      */
     while(1){
-        
-    
-    
-    
- /*
-  * 
-  * Read inputs from potentiometers for gas pedal
-  */
-        //if(readyToSample){
-        //    ADC_Samp;
-            //ADC1BUF0bits
-        //}
+       
+        // Read inputs from potentiometers for gas pedal
         if(IFS0bits.AD1IF){
             ADCval[0] = *ADCPtr; //Buffer for first Acc Sensor
             ADCval[1] = *(ADCPtr++); //Buffer for second Acc Sensor
@@ -51,33 +41,22 @@ void main(void) {
             readyToSend = 1;
             TMR5 = 0;
             //tempADCval2 = Ad1BUF0[1];
-            
-            
         }
-        
         
         if(readyToSend  && clearToSend){
             readyToSend = 0;
             UARTSend(&speed);
         }
-        
+
         if(plausCheck){
-            plausCheck = 0;
+            plausCheck = 0; //Reset timer
             int temp = plausCount;
             plausCount += checkTPS(&ADCval);
             if(temp == plausCount){
-                plausCount = 0;
-            }else if(plausCount > 10){
+                plausCount = 0; //ADC Values within acceptable range
+            }else if(plausCount > 10){ //100ms has passed and ADC values are still out of range
                 // Kill Motor
             }
-            
         }
-        
-        //if(TransmitReady){
-            
-        //}
-    
-    
     }
-
 }
