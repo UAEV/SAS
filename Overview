@@ -1,0 +1,15 @@
+#High level overview of code
+
+
+Main loop:
+	Constantly polling accelerator pedal value
+
+Timer5:
+	Stops polling and starts ADC conversion.
+
+ADC Conversion Finished:	
+	Pushes what is in the ADC buffer (10 bit) into the Speed struct (least sig 8 into speedL, two most sig into speedH). 
+	This might be changed by just dropping the two least significant values and keeping the 8 most significant
+
+External Peripherial Interrupt:
+	When the brake pedal comparator outputs any value this interrupt flag will be thrown
