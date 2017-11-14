@@ -37,6 +37,9 @@
 //void T1_Setup(void);
 //void T5_Setup(void);
 int amberInd = 0;
+int plausCheck = 0;
+int plausCount = 0;
+
 
 // Functions
 void T1_Setup(void);

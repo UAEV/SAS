@@ -18,6 +18,7 @@
 
 Speed speed[];
 
+
 void main(void) {
     
     /*
@@ -60,7 +61,17 @@ void main(void) {
             UARTSend(&speed);
         }
         
-        
+        if(plausCheck){
+            plausCheck = 0;
+            int temp = plausCount;
+            plausCount += checkTPS(&ADCval);
+            if(temp == plausCount){
+                plausCount = 0;
+            }else if(plausCount > 10){
+                // Kill Motor
+            }
+            
+        }
         
         //if(TransmitReady){
             

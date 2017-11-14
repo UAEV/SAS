@@ -119,6 +119,34 @@ void loadSpeed(Speed *speed[], int *val[]){
     
 }
 
+char average(char val1, char val2){
+    int temp = val1 + val2;
+    return (char)(temp >> 1);
+}
+
+
+int checkTPS(int *val[]){
+    int temp = val[0];
+    int temp2 = val[1];
+    int diff;
+    if(temp >= temp2){
+        diff = .1*temp;
+        if(temp2 + diff < temp){
+            return 1;
+        }
+        return 0;
+    }else{
+        diff = .1*temp2;
+        if(temp + diff < temp2){
+            return 1;
+        }
+        return 0;
+    }
+    
+    
+}
+
+
 //void __attribute__((interrupt, auto_psv)) AD1Interrupt(void){
     
 

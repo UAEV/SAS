@@ -33,6 +33,20 @@ void T2_Setup(void){
 
 }
 
+
+void T3_Setup(void){
+    T3CONbits.TON = 1;
+    T3CONbits.TSIDL = 0;
+    T3CONbits.TCS = 0;
+    T3CONbits.TCKPS = 0b11; // Prescaler set 1:256
+    TMR3 = 0x0000;
+    
+    //Chip
+    PR3 = 0x1234;  // Have to double check with rules and schematic
+    
+
+}
+
 void T5_Setup(void){
     T5CONbits.TON = 1;
     T5CONbits.TSIDL = 0;
@@ -61,4 +75,8 @@ void __attribute__((interrupt, auto_psv)) T2Interrupt(void){
     
 }
 
+void __attribute__((interrupt, auto_psv)) T3Interrupt(void){
+    plausCheck = 1;
+    
+}
 
