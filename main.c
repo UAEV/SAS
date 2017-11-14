@@ -23,10 +23,10 @@ void main(void) {
     /*
      * Main Setup
      */
-    T5_Setup(void);
-    ADC_Init(void);
-    UART_Init();
-    
+    //T5_Setup(void);
+    //ADC_Init(void);
+    //UART_Init();
+    setup(void);
    // while(!UARTTest);
     
     
