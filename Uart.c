@@ -41,7 +41,7 @@ void UART_Init(){
     
 }
 
-
+//Change
 //Will need to send up for one byte at a time for now
 void UARTSend(Speed *data[]){
     requestToSend = 0;
