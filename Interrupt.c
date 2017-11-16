@@ -6,7 +6,10 @@
  */
 
 
-#include "xc.h"
+#include <xc.h>
+#include "PinDef.h"
+#include "Functions.h"
+#include "Vars.h"
 
     /*
      *  Enable all used interrupts and set priority

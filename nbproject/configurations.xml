@@ -5,9 +5,8 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>PinDef.h</itemPath>
-      <itemPath>ADC.h</itemPath>
-      <itemPath>Timer.h</itemPath>
-      <itemPath>UART.h</itemPath>
+      <itemPath>Functions.h</itemPath>
+      <itemPath>Vars.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,7 +22,6 @@
       <itemPath>DMA.c</itemPath>
       <itemPath>Interrupt.c</itemPath>
       <itemPath>UART.c</itemPath>
-      <itemPath>I2c.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

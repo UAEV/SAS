@@ -6,11 +6,11 @@
  */
 
 //Tells the PIC what the clock speed is (40MHz)
-#define _XTAL_FREQ 40000000
 
 #include <xc.h>
 #include "PinDef.h"
-
+#include "Functions.h"
+#include "Vars.h"
 
 //Fosc = Fin * (M/N2*N1) = 40MHZ => 20Mips
 void oscSetup(){   

@@ -21,51 +21,64 @@
 
 /* 
  * File:   
- * Author: Nick
- * Comments: 
+ * Author: 
+ * Comments:
  * Revision history: 
  */
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-//#ifndef XC_HEADER_TEMPLATE_H
-//#define	XC_HEADER_TEMPLATE_H
+#ifndef XC_HEADER_TEMPLATE_H
+#define	XC_HEADER_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 
-// Variables
-volatile int readyToSample = 0;  //Timer 4 calls 
-volatile int ADCReady = 0;       // 
-volatile int ADCval[];
-int ADCPtr = (int) &ADCBUF0;
+//main.c
+    //Definitions
+
+    //Vars
+    Speed speed[];
+
+//Config.c
+    //Definitions
+    #define _XTAL_FREQ 40000000
 
 
-struct Speed{
-    char speedH;
-    char speedL;
-};
+//ADC.c
+    //Definitions
+
+    //Vars
+    volatile int readyToSample = 0;  //Timer 4 calls 
+    volatile int ADCReady = 0;       // 
+    volatile int ADCval[];
+    int ADCPtr = (int) &ADCBUF0;
+
+    struct Speed{
+        char speedH;
+        char speedL;
+    };
 
 
-// Functions
-void ADC_Init(void);
-void ADC_Samp(void);
-void T5Interrupt(void);
-void loadSpeed(Speed *speed[], int *val[]);
+//UART.c
+   //Definitions
+    #define FCY 40000000
+    #define BRATE 9600
 
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
+    //Vars
+    int readyToSend = 0;
+    int requestToSend = 0;
+    int clearToSend = 0;
 
-#ifdef	__cplusplus
-extern "C" {
-#endif /* __cplusplus */
+//Timer.c
+   //Definitions
 
-    // TODO If C++ is being used, regular C code needs function names to have C 
-    // linkage so the functions can be used by the c code. 
+    //Vars
+    int amberInd = 0;
+    int plausCheck = 0;
+    int plausCount = 0;
 
-#ifdef	__cplusplus
-}
-#endif /* __cplusplus */
+
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 

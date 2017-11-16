@@ -6,9 +6,11 @@
  */
 
 
-#include "xc.h"
-#include "UART.h"
-#include "ADC.h"
+#include <xc.h>
+#include "PinDef.h"
+#include "Functions.h"
+#include "Vars.h"
+
 
 void UART_Init(){
     int temp = ((FCY/BRATE)/16) - 1;

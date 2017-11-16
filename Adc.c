@@ -8,8 +8,11 @@
 
 //#include <p33FJ128GP804.h>
 
-#include "xc.h"
-#include "ADC.h"
+
+#include <xc.h>
+#include "PinDef.h"
+#include "Functions.h"
+#include "Vars.h"
 
 
 

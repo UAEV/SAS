@@ -28,36 +28,28 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-//#ifndef XC_HEADER_TEMPLATE_H
-//#define	XC_HEADER_TEMPLATE_H
+#ifndef XC_HEADER_TEMPLATE_H
+#define	XC_HEADER_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+#include "Vars.h"
 
-// Variables
-//void T1_Setup(void);
-//void T5_Setup(void);
-int amberInd = 0;
-int plausCheck = 0;
-int plausCount = 0;
-
-
-// Functions
+//Timer.c
 void T1_Setup(void);
 void T2_Setup(void);
 void T5_Setup(void);
 
+//ADC.c
+void ADC_Init(void);
+void ADC_Samp(void);
+void T5Interrupt(void);
+void loadSpeed(Speed *speed[], int *val[]);
+
+//UART.c
+void UART_Init();
+void UARTSend(Speed *data[]);
 
 
-#ifdef	__cplusplus
-extern "C" {
-#endif /* __cplusplus */
-
-    // TODO If C++ is being used, regular C code needs function names to have C 
-    // linkage so the functions can be used by the c code. 
-
-#ifdef	__cplusplus
-}
-#endif /* __cplusplus */
 
 #endif	/* XC_HEADER_TEMPLATE_H */
 
