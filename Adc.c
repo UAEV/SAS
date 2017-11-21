@@ -11,8 +11,8 @@
 
 #include <xc.h>
 #include "PinDef.h"
-#include "Functions.h"
 #include "Vars.h"
+#include "Functions.h"
 
 
 
@@ -109,7 +109,7 @@ void ADC_Samp(){
 void loadSpeed(Speed *speed[], int *val[]){
     int i = 0;
     while(i < 2){
-        speed[i]->speedL = val[i] >>2;
+        speed[i]->speedL = *val[i] >>2;
         
         //Currently only using 8 most significant bits
         //Might use below code to utilize all data later
@@ -129,8 +129,8 @@ char average(char val1, char val2){
 
 
 int checkTPS(int *val[]){
-    int temp = val[0];
-    int temp2 = val[1];
+    int temp = (int) val[0];
+    int temp2 = (int) val[1];
     int diff;
     if(temp >= temp2){
         diff = .1*temp;

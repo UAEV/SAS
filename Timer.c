@@ -12,12 +12,19 @@
 #include "Vars.h"
 
 
+//Timer set for interrupt every 20ms
+//Time = Fcy / (PR1 * TCKPS) = 24,000,000 / (256 * 1875) = 20 ms
 void T1_Setup(void){
-    T1CONbits.TON = 1;
+    T1CON = 0;
     T1CONbits.TSIDL = 0;
-    T1CONbits.TCS = 1;
+    T1CONbits.TCS = 0;
     //T1CONbits.TSYNC = 1;
     T1CONbits.TCKPS = 0b11; // Prescaler set 1:256
+    
+    IEC0bits.T1IE = 1;
+    PR1 = 1875;
+    T1CONbits.TON = 1;
+    
     
 }
 
@@ -69,21 +76,31 @@ void T5_Setup(void){
  * 
  */
 
-void __attribute__((interrupt, auto_psv)) T2Interrupt(void){
+void __attribute__((interrupt, auto_psv)) _T1Interrupt(void){
+    
+    IFS0bits.T2IF = 0;     // Clear Interrupt Flag
+    LED_Port = !LED_Port;  // Amber indication turns on and off status LED
+    
+}
+
+void __attribute__((interrupt, auto_psv)) _T5Interrupt(void){
+    IFS1bits.T5IF = 0; //Clear interrupt flag
+    TMR5 = 0; //Probably irrelevant
+    
+}
+
+/*
+void __attribute__((interrupt, auto_psv)) _T2Interrupt(void){
     
     IFS0bits.T2IF = 0;
     LED_Port = !LED_Port;         // Amber indication turns on and off status LED
     
 }
 
-void __attribute__((interrupt, auto_psv)) T3Interrupt(void){
+void __attribute__((interrupt, auto_psv)) _T3Interrupt(void){
     plausCheck = 1;
     TMR3 = 0;
     IFS0bits.T3IF = 0; //Clear interrupt flag
 }
+ */
 
-void __attribute__((interrupt, auto_psv)) T5Interrupt(void){
-    IFS1bits.T5IF = 0; //Clear interrupt flag
-    TMR5 = 0;
-    
-}

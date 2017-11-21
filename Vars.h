@@ -28,21 +28,18 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+#ifndef Vars
+#define	Vars
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 
-//main.c
-    //Definitions
 
-    //Vars
-    Speed speed[];
 
 //Config.c
     //Definitions
     #define _XTAL_FREQ 40000000
+
 
 
 //ADC.c
@@ -51,13 +48,9 @@
     //Vars
     volatile int readyToSample = 0;  //Timer 4 calls 
     volatile int ADCReady = 0;       // 
-    volatile int ADCval[];
-    int ADCPtr = (int) &ADCBUF0;
+    volatile int ADCval[2];
+    int ADCPtr =  (int) &ADCBUF0;
 
-    struct Speed{
-        char speedH;
-        char speedL;
-    };
 
 
 //UART.c
@@ -78,7 +71,17 @@
     int plausCheck = 0;
     int plausCount = 0;
 
+//main.c
+    //Definitions
+    typedef struct{
+        char speedH;
+        char speedL;
+    }Speed;
+    
+    //Vars
+    Speed speed[2];
 
-
-#endif	/* XC_HEADER_TEMPLATE_H */
+    //speed[0].speedH = 0;
+    //speed[1].speedL = 0;
+#endif	 
 

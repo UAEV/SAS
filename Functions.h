@@ -31,25 +31,26 @@
 #ifndef XC_HEADER_TEMPLATE_H
 #define	XC_HEADER_TEMPLATE_H
 
-#include <xc.h> // include processor files - each processor file is guarded.  
-#include "Vars.h"
-
 //Timer.c
-void T1_Setup(void);
-void T2_Setup(void);
-void T5_Setup(void);
+void T1_Setup();
+void T2_Setup();
+void T5_Setup();
+void T5Interrupt();
 
 //ADC.c
-void ADC_Init(void);
-void ADC_Samp(void);
-void T5Interrupt(void);
-void loadSpeed(Speed *speed[], int *val[]);
+void ADC_Init();
+void ADC_Samp();
 
 //UART.c
 void UART_Init();
-void UARTSend(Speed *data[]);
 
+//Config.c
+void setup();
+void oscSetup();
+void UARTSend (char data);
+void __attribute__((interrupt, auto_psv)) _U1RXInterrupt(void);
+void __attribute__((interrupt, auto_psv)) _T1Interrupt(void);
 
-
+void loadSpeed(Speed *speed[], int *val[]);
 #endif	/* XC_HEADER_TEMPLATE_H */
 

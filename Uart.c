@@ -60,7 +60,7 @@ void UART_Init(){
 */
     
 void UARTSend (char data){
-     while(!U1STA.UT1BX);  // hold the program till TX buffer is free
     U1TXREG = data; //Load the transmitter buffer with the received value
+    while(!U1STAbits.TRMT); // hold the program till TX buffer is free
 }
 

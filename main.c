@@ -9,16 +9,21 @@
 #include <xc.h>
 #include <stdio.h>
 #include "PinDef.h"
-#include "Functions.h"
 #include "Vars.h"
+#include "Functions.h"
 
 
-void main(void) {
     
+
+
+
+    
+void main(void) {
+
     /*
      * Main Setup
      */
-    setup(void);
+    setup();
     LED_Tris = 0;
     
     /*
@@ -28,8 +33,8 @@ void main(void) {
        
         // Read inputs from potentiometers for gas pedal
         if(IFS0bits.AD1IF){
-            ADCval[0] = *ADCPtr; //Buffer for first Acc Sensor
-            ADCval[1] = *(ADCPtr++); //Buffer for second Acc Sensor
+            ADCval[0] =  *ADCPtr; //Buffer for first Acc Sensor
+            ADCval[1] = (int) *(ADCPtr++); //Buffer for second Acc Sensor
             IFS0bits.AD1IF = 0;
             loadSpeed(&speed, &ADCval);
             readyToSend = 1;
@@ -39,7 +44,7 @@ void main(void) {
         
         if(readyToSend  && clearToSend){
             readyToSend = 0;
-            UARTSend(&speed);
+            UARTSend(speed[0]);
         }
 
         if(plausCheck){
