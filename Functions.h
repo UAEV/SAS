@@ -32,25 +32,30 @@
 #define	XC_HEADER_TEMPLATE_H
 
 //Timer.c
-void T1_Setup();
-void T2_Setup();
-void T5_Setup();
-void T5Interrupt();
+
 
 //ADC.c
-void ADC_Init();
-void ADC_Samp();
+
 
 //UART.c
-void UART_Init();
 
 //Config.c
-void setup();
-void oscSetup();
 void UARTSend (char data);
 void __attribute__((interrupt, auto_psv)) _U1RXInterrupt(void);
 void __attribute__((interrupt, auto_psv)) _T1Interrupt(void);
 
-void loadSpeed(Speed *speed[], int *val[]);
+//Config.c
+void oscSetup();
+void ADC_Init();
+void T1_Setup();
+void T2_Setup();
+void T3_Setup();
+void T5_Setup();
+void setup();
+
+
+int checkTPS(int val[]);
+void loadSpeed(char speed[], int val[]);
+
 #endif	/* XC_HEADER_TEMPLATE_H */
 

@@ -7,10 +7,8 @@
 
 
 #include <xc.h>
-#include "PinDef.h"
-#include "Functions.h"
-#include "Vars.h"
-
+#define FCY 40000000
+#define BRATE 9600
 
 void UART_Init(){
     int temp = ((FCY/BRATE)/16) - 1;

@@ -49,37 +49,31 @@
     volatile int readyToSample = 0;  //Timer 4 calls 
     volatile int ADCReady = 0;       // 
     volatile int ADCval[2];
-    int ADCPtr =  (int) &ADCBUF0;
+    extern int ADCPtr;
 
 
 
 //UART.c
    //Definitions
-    #define FCY 40000000
-    #define BRATE 9600
 
     //Vars
-    int readyToSend = 0;
-    int requestToSend = 0;
-    int clearToSend = 0;
+    extern int readyToSend;
+    extern int requestToSend;
+    extern int clearToSend;
 
 //Timer.c
    //Definitions
 
     //Vars
-    int amberInd = 0;
-    int plausCheck = 0;
-    int plausCount = 0;
+    extern int amberInd;
+    extern int plausCheck;
+    extern int plausCount;
 
 //main.c
     //Definitions
-    typedef struct{
-        char speedH;
-        char speedL;
-    }Speed;
     
     //Vars
-    Speed speed[2];
+    //void loadSpeed(Speed *speed, int *val);
 
     //speed[0].speedH = 0;
     //speed[1].speedL = 0;

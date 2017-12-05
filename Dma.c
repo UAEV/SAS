@@ -7,9 +7,7 @@
 
 
 #include <xc.h>
-#include "PinDef.h"
 #include "Functions.h"
-#include "Vars.h"
 
 void DMA_Setup(void){
     
